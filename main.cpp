@@ -59,14 +59,12 @@ void display (void){
     
     srand(time(NULL));
     
-    for (int i = 0; i<5; i++){
+    for (int i = 0; i<10; i++){
         //generating random numbers -21,-18,-15,....0,....15,18,21
         randx = (rand() % 7 + (-3))*7;
         randy = (rand() % 7 + (-3))*7;
         convex_concave(randx, randy, true);
-    }
-    
-    for (int i = 0; i<5; i++){
+        
         randx = (rand() % 7 + (-3))*7;
         randy = (rand() % 7 + (-3))*7;
         convex_concave(randx, randy, false);
