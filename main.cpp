@@ -8,6 +8,9 @@
 #  include <GL/glut.h>
 #endif
 #  include <math.h>
+#  include <stdlib.h>
+#  include <iostream>
+#  include <ctime>
 
 
 
@@ -48,34 +51,43 @@ void convex_concave(float x_translation, float y_translation, bool convex){
 }
 
 void display (void){
+    float randx;
+    float randy;
     
     glClear(GL_COLOR_BUFFER_BIT);
-    
     glBegin(GL_LINES);
     
-    convex_concave(0.0, 6.0, true);
-    convex_concave(0.0, -6.0, true);
-    convex_concave(12.0, -6.0, true);
+    srand(time(NULL));
     
-    convex_concave(6.0, -12.0, false);
-    convex_concave(-12.0, 12.0, false);
-    convex_concave(-6.0, -12.0, false);
+    for (int i = 0; i<5; i++){
+        //generating random numbers -21,-18,-15,....0,....15,18,21
+        randx = (rand() % 7 + (-3))*7;
+        randy = (rand() % 7 + (-3))*7;
+        convex_concave(randx, randy, true);
+    }
+    
+    for (int i = 0; i<5; i++){
+        randx = (rand() % 7 + (-3))*7;
+        randy = (rand() % 7 + (-3))*7;
+        convex_concave(randx, randy, false);
+    }
     
     glEnd();
-    
     glFlush();
     
 }
 
 
 int main(int argc, char ** argv){
+    
     glutInit(& argc, argv);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
     glutInitWindowSize(800,800);
     glutInitWindowPosition(200,100);
     glutCreateWindow("Project1");
     glClearColor(0.5,0.5,0.5,0.0);
-    gluOrtho2D(-20.0, 20.0,-20.0,20.0);
+    gluOrtho2D(-25.0, 25.0,-25.0,25.0);
     glutDisplayFunc(display);
     glutMainLoop();
+    
 }
