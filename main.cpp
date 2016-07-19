@@ -60,7 +60,7 @@ void display (void){
     srand(time(NULL));
     
     for (int i = 0; i<10; i++){
-        //generating random numbers -21,-18,-15,....0,....15,18,21
+        //generating random numbers -21,-14,-7,0,7,14,21
         randx = (rand() % 7 + (-3))*7;
         randy = (rand() % 7 + (-3))*7;
         convex_concave(randx, randy, true);
