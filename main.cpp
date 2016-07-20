@@ -1,16 +1,12 @@
-#ifdef __APPLE__
-#  include <OpenGL/gl.h>
-#  include <OpenGL/glu.h>
-#  include <GLUT/glut.h>
-#else
-#  include <GL/gl.h>
-#  include <GL/glu.h>
-#  include <GL/glut.h>
-#endif
 #  include <math.h>
 #  include <stdlib.h>
-#  include <iostream>
 #  include <ctime>
+#ifdef __APPLE__
+#  include <GLUT/glut.h>
+#else
+#  include <GL/glut.h>
+#endif
+
 
 
 
@@ -59,7 +55,7 @@ void display (void){
     
     srand(time(NULL));
     
-    for (int i = 0; i<10; i++){
+    for (int i = 0; i<5; i++){
         //generating random numbers -21,-14,-7,0,7,14,21
         randx = (rand() % 7 + (-3))*7;
         randy = (rand() % 7 + (-3))*7;
